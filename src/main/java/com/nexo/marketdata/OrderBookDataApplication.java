@@ -1,13 +1,11 @@
-package com.nexo.marketdata.orderbookdataclient;
+package com.nexo.marketdata;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OrderbookDataClientApplication {
-
+public class OrderBookDataApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OrderbookDataClientApplication.class, args);
+        SpringApplication.run(OrderBookDataApplication.class, args);
     }
-
 }
