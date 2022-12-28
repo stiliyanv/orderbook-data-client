@@ -1,4 +1,4 @@
-package com.nexo.marketdata.services;
+package com.nexo.marketdata.handlers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,12 +15,12 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import java.io.IOException;
 import java.net.URI;
 
-import static com.nexo.marketdata.constants.KrakenConstants.ERROR_MESSAGE;
-import static com.nexo.marketdata.constants.KrakenConstants.EVENT;
-import static com.nexo.marketdata.constants.KrakenConstants.EVENT_SUBSCRIPTION_STATUS;
-import static com.nexo.marketdata.constants.KrakenConstants.KRAKEN_WEBSOCKET_PUBLIC_URL;
-import static com.nexo.marketdata.constants.KrakenConstants.STATUS;
-import static com.nexo.marketdata.constants.KrakenConstants.STATUS_ERROR;
+import static com.nexo.marketdata.utility.KrakenConstants.ERROR_MESSAGE;
+import static com.nexo.marketdata.utility.KrakenConstants.EVENT;
+import static com.nexo.marketdata.utility.KrakenConstants.EVENT_SUBSCRIPTION_STATUS;
+import static com.nexo.marketdata.utility.KrakenConstants.KRAKEN_WEBSOCKET_PUBLIC_URL;
+import static com.nexo.marketdata.utility.KrakenConstants.STATUS;
+import static com.nexo.marketdata.utility.KrakenConstants.STATUS_ERROR;
 
 @Slf4j
 @NoArgsConstructor
@@ -50,7 +50,7 @@ public class KrakenWebSocketHandler extends TextWebSocketHandler {
         }
     }
 
-    protected boolean subscribe(String payload) {
+    public boolean subscribe(String payload) {
         try {
             webSocketSession.sendMessage(new TextMessage(payload));
         } catch (IOException e) {
@@ -61,11 +61,11 @@ public class KrakenWebSocketHandler extends TextWebSocketHandler {
         return true;
     }
 
-    protected boolean isSessionOpen() {
+    public boolean isSessionOpen() {
         return webSocketSession != null && webSocketSession.isOpen();
     }
 
-    protected boolean closeSession() {
+    public boolean closeSession() {
         try {
             webSocketSession.close();
             log.debug("Kraken Websocket public channel ({}) session closed", KRAKEN_WEBSOCKET_PUBLIC_URL);
@@ -76,7 +76,7 @@ public class KrakenWebSocketHandler extends TextWebSocketHandler {
         }
     }
 
-    protected boolean openSession() {
+    public boolean openSession() {
         try {
             webSocketSession = new StandardWebSocketClient().doHandshake(
                     this,

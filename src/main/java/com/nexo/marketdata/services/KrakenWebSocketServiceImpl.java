@@ -3,18 +3,19 @@ package com.nexo.marketdata.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.nexo.marketdata.handlers.KrakenWebSocketHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.nexo.marketdata.constants.KrakenConstants.EVENT;
-import static com.nexo.marketdata.constants.KrakenConstants.EVENT_SUBSCRIBE;
-import static com.nexo.marketdata.constants.KrakenConstants.KRAKEN_WEBSOCKET_PUBLIC_URL;
-import static com.nexo.marketdata.constants.KrakenConstants.NAME;
-import static com.nexo.marketdata.constants.KrakenConstants.NAME_BOOK;
-import static com.nexo.marketdata.constants.KrakenConstants.PAIR;
-import static com.nexo.marketdata.constants.KrakenConstants.SUBSCRIPTION;
+import static com.nexo.marketdata.utility.KrakenConstants.EVENT;
+import static com.nexo.marketdata.utility.KrakenConstants.EVENT_SUBSCRIBE;
+import static com.nexo.marketdata.utility.KrakenConstants.KRAKEN_WEBSOCKET_PUBLIC_URL;
+import static com.nexo.marketdata.utility.KrakenConstants.NAME;
+import static com.nexo.marketdata.utility.KrakenConstants.NAME_BOOK;
+import static com.nexo.marketdata.utility.KrakenConstants.PAIR;
+import static com.nexo.marketdata.utility.KrakenConstants.SUBSCRIPTION;
 
 @Slf4j
 @Service

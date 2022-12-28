@@ -1,4 +1,4 @@
-package com.nexo.marketdata.constants;
+package com.nexo.marketdata.utility;
 
 /**
  * Class that contains constants related to <a href="https://docs.kraken.com/websockets/">Kraken Websockets API</a>
