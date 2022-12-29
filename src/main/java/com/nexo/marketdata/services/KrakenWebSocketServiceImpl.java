@@ -29,6 +29,9 @@ public class KrakenWebSocketServiceImpl implements KrakenWebSocketService {
         krakenWebSocketHandler = new KrakenWebSocketHandler();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean connect() {
         if (!krakenWebSocketHandler.isSessionOpen()) {
@@ -38,6 +41,9 @@ public class KrakenWebSocketServiceImpl implements KrakenWebSocketService {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean subscribe(List<String> pairs) {
         if (!krakenWebSocketHandler.isSessionOpen()) {
@@ -63,6 +69,9 @@ public class KrakenWebSocketServiceImpl implements KrakenWebSocketService {
         return krakenWebSocketHandler.subscribe(rootNode.toString());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean disconnect() {
         if (krakenWebSocketHandler.isSessionOpen()) {

@@ -14,6 +14,7 @@ public interface KrakenWebSocketService {
     /**
      * Subscribe for a stream of Kraken Websocket public channel order book updates
      *
+     * @param pairs {@link List} of asset pairs
      * @return {@code true} if the subscription is established successfully, {@code false} otherwise
      */
     boolean subscribe(List<String> pairs);
