@@ -1,6 +1,6 @@
 # orderbook-data-client
 
-Spring boot REST application for reading and printing market data for specified asset pairs from Kraken exchange by using [Kraken Websockets API](https://docs.kraken.com/websockets/).
+Spring boot REST application for reading and printing (on the console) market data for specified asset pairs from Kraken exchange by using [Kraken Websockets API](https://docs.kraken.com/websockets/).
 
 > The application is build with and requires Java 11
 
@@ -24,17 +24,17 @@ The application will run on `http://localhost:8080`
 
 ## Endpoints
 
-| Request                     | Parameters  | Details |
-| --------------------------- | ----------- | ------- |
-| `POST /kraken-ws/open`      | - | Open a session to Kraken Websocket public channel |
-| `POST /kraken-ws/subscribe` | List of Asset Pairs (example: `XBT/USD,ETH/USD`) | Subscribe for a stream of Kraken Websocket public channel order book updates |
-| `POST /kraken-ws/close`     | - | Close an opened session to Kraken Websocket public channel |
+| POST Request           | Parameters  | Details |
+| ---------------------- | ----------- | ------- |
+| `/kraken-ws/open`      | -           | Open a session to Kraken Websocket public channel |
+| `/kraken-ws/subscribe` | List of Asset Pairs (example: `XBT/USD,ETH/USD`) | Subscribe for a stream of Kraken Websocket public channel order book updates and print the result of this subscription on the console |
+| `/kraken-ws/close`     | -           | Close an opened session to Kraken Websocket public channel |
 
 ## Examples
 
 ### Open a session
 ```
-# POST request
+# POST Request
 http://localhost:8080/kraken-ws/open
 
 # Response
@@ -50,7 +50,7 @@ http://localhost:8080/kraken-ws/open
 
 ### Subscribe
 ```
-# POST request
+# POST Request
 http://localhost:8080/kraken-ws/subscribe?pairs=XBT/USD,ETH/USD
 
 # Response
@@ -121,7 +121,7 @@ pair: "XBT/USD"
 
 ### Trying to subscribe without opening a session
 ```
-# POST request
+# POST Request
 http://localhost:8080/kraken-ws/subscribe?pairs=XBT/USD,ETH/USD
 
 # Response
@@ -137,7 +137,7 @@ http://localhost:8080/kraken-ws/subscribe?pairs=XBT/USD,ETH/USD
 
 ### Trying to subscribe using incorrect asset pairs
 ```
-# POST request
+# POST Request
 http://localhost:8080/kraken-ws/subscribe?pairs=XXXXXXX,AAA/AAAA
 
 # Response
@@ -157,7 +157,7 @@ http://localhost:8080/kraken-ws/subscribe?pairs=XXXXXXX,AAA/AAAA
 
 ### Close a session
 ```
-# POST request
+# POST Request
 http://localhost:8080/kraken-ws/close
 
 # Response
